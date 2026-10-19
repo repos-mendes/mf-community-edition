@@ -35,6 +35,7 @@ O jogo roda sobre a [Thunder Engine](https://github.com/repos-mendes/thunder-eng
 - **Exceção explícita para mortes intencionais.** Em vez de remover o "reiniciar fase", essas chamadas passam a tag `immortal_bypass`. Sem isso, um jogador preso numa fase não teria saída.
 - **Só chão firme conta como ponto de volta.** A posição segura só é gravada sobre `StaticBody2D` ou `TileMapLayer`. Plataformas móveis ou que caem ficariam fora do lugar ao voltar e jogariam o Mario de novo no buraco, em loop.
 - **Voltar com margem antes da beira.** A primeira versão devolvia o Mario ao último ponto pisado, que fica exatamente na beira do buraco: segurando →, ele caía de novo na hora. Isso apareceu ao gravar o GIF do topo. Agora o jogo guarda as últimas 30 posições seguras (~0,5 s) e devolve à mais antiga, o que deixa uma margem antes da beira.
+- **Ignorar a queda durante um cano.** Um cano que leva a um ponto mais baixo da fase deixa o Mario, por um instante, abaixo da tela da área de onde ele saiu. O `die()` original já ignora isso durante o warp, mas a primeira versão do `immortal_respawn()` não ignorava. Na fase 6-2, que tem um labirinto de canos, o cano certo de saída jogava o Mario de volta para dentro da caverna, e a fase ficava impossível de terminar. Agora a volta ao chão é ignorada durante o warp, e o histórico de posições seguras é apagado ao entrar num cano, para uma queda depois nunca devolver o Mario a outra área.
 - **Reaproveitar o ataque da estrela.** Os inimigos já sabem reagir ao ataque de contato da estrela (e alguns já são imunes a ele), então ligar esse ataque de forma permanente mantém as regras do jogo coerentes.
 
 ## Testes
@@ -43,5 +44,6 @@ Validado com o Godot 4.7.3-rc1 (build Thunder Engine) rodando as fases sem inter
 
 - fase 1-1: `hurt()` não tira o poder, `die()` não mata, cair abaixo da tela devolve o Mario à última posição segura e o "reiniciar" ainda funciona;
 - fase 1-4 (castelo): o Mario colocado dentro da lava continua vivo.
+- fase 6-2 (labirinto de canos): com o modo ligado, cada cano testado leva ao mesmo destino que com o modo desligado, inclusive a saída da caverna para a área externa. Antes da correção, todos os canos que levam para baixo da tela devolviam o Mario ao último chão firme.
 
 O GIF do topo foi gravado com o Movie Maker do Godot (`--write-movie`, 30 FPS), com um script que controla o Mario na fase 1-1: ele anda até o primeiro buraco, cai, volta, pula o buraco e o cano e encosta no Goomba.
