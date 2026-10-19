@@ -4,6 +4,8 @@
 
 # Mario Forever: Community Edition
 
+> **Sobre este fork (projeto pessoal).** Esta é uma cópia pessoal do [projeto original](https://github.com/meteo-dream/mf-community-edition), usada para estudar Godot e GDScript. A contribuição até agora é o **modo imortal**: uma opção nova no menu Tweaks em que o Mario não morre, volta ao chão ao cair em buracos e derrota os inimigos ao tocá-los. Detalhes, decisões e testes em [`docs/modo-imortal.md`](docs/modo-imortal.md). A engine modificada está em [repos-mendes/thunder-engine](https://github.com/repos-mendes/thunder-engine).
+
 [![Godot][godot-img]][godot-link]
 [![License][license-img]](LICENSE.txt)
 [![Discord][discord-img]][discord-link]

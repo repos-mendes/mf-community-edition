@@ -722,6 +722,14 @@ tweak_description_text = "Like in Super Mario Bros. 1, getting hit while powered
 
 This challenge is completely optional, and there is no reward for it."
 
+[node name="HBoxContainer1" parent="Gameplay" unique_id=359667910 instance=ExtResource("15_mxo6u")]
+layout_mode = 2
+tweak_name = "immortal_mario"
+tweak_title_text = "immortal mario"
+tweak_description_text = "Mario cannot die: falling into a pit brings him back to the last solid ground, lava does nothing, falling objects and hazards do not hurt him, and enemies are defeated just by touching him.
+
+Restarting the level from the pause menu still works."
+
 [node name="Exit" type="HBoxContainer" parent="Gameplay" unique_id=404890256]
 layout_mode = 2
 size_flags_vertical = 10
