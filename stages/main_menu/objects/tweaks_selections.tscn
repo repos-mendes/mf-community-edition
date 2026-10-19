@@ -730,6 +730,12 @@ tweak_description_text = "Mario cannot die: falling into a pit brings him back t
 
 Restarting the level from the pause menu still works."
 
+[node name="HBoxContainer13" parent="Gameplay" unique_id=1784203591 instance=ExtResource("15_mxo6u")]
+layout_mode = 2
+tweak_name = "double_jump"
+tweak_title_text = "double jump"
+tweak_description_text = "Press jump again in mid-air to jump a second time. The extra jump is recharged when Mario lands, swims or climbs."
+
 [node name="Exit" type="HBoxContainer" parent="Gameplay" unique_id=404890256]
 layout_mode = 2
 size_flags_vertical = 10
